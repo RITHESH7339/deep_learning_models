@@ -13,7 +13,7 @@ st.set_page_config(
 )
 
 # =====================================================
-# CUSTOM CSS
+# CUSTOM CSS - DARK THEME WITH CYAN ACCENTS
 # =====================================================
 
 st.markdown("""
@@ -22,9 +22,9 @@ st.markdown("""
 .stApp{
     background: linear-gradient(
         135deg,
-        #0f172a,
-        #1e293b,
-        #334155
+        #0a0e27,
+        #1a1f3a,
+        #0d3d56
     );
 }
 
@@ -56,11 +56,11 @@ header{
 
     background:linear-gradient(
         90deg,
-        #2563eb,
-        #7c3aed
+        #00d9ff,
+        #0099cc
     );
 
-    color:white;
+    color:#0a0e27;
 
     font-size:16px;
 
@@ -74,19 +74,22 @@ header{
     transform:translateY(-2px);
 
     box-shadow:
-    0px 8px 20px rgba(124,58,237,.4);
+    0px 8px 20px rgba(0, 217, 255, 0.5);
 }
 
 /* Text Area */
 
 textarea{
     border-radius:15px !important;
+    background: #1a2847 !important;
+    color: #e0e6ed !important;
+    border: 2px solid #00d9ff !important;
 }
 
 /* Stats */
 
 .stats{
-    color:#cbd5e1;
+    color:#00d9ff;
     font-size:13px;
     margin-top:8px;
 }
@@ -95,14 +98,15 @@ textarea{
 
 .title{
     text-align:center;
-    color:white;
+    color:#00d9ff;
     font-size:48px;
     font-weight:800;
+    text-shadow: 0 0 20px rgba(0, 217, 255, 0.3);
 }
 
 .subtitle{
     text-align:center;
-    color:#cbd5e1;
+    color:#0099cc;
     font-size:18px;
     margin-bottom:20px;
 }
@@ -272,7 +276,7 @@ st.markdown(
 """
 <div style='
 text-align:center;
-color:#cbd5e1;
+color:#0099cc;
 font-size:12px;
 '>
 ⚡ Powered by Neural Translation Engine

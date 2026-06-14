@@ -6,7 +6,7 @@ import numpy as np
 import time
 
 # ==============================================================================
-# 1. PAGE SETUP & UNIFIED ULTRA-PREMIUM LIGHT UI (CUSTOM CSS)
+# 1. PAGE SETUP & UNIFIED DARK THEME WITH CYAN ACCENTS
 # ==============================================================================
 st.set_page_config(
     page_title="Deep Learning Architecture Studio", 
@@ -14,20 +14,20 @@ st.set_page_config(
     layout="wide"
 )
 
-# Shared premium styling for headers, buttons, cards, and custom tensor badges
+# Dark theme with cyan/teal accents
 st.markdown(
     """
     <style>
     /* Global Background and Typography */
     .stApp {
-        background: linear-gradient(135deg, #F8FAFC 0%, #EFF6FF 100%);
-        color: #1E293B;
+        background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
+        color: #e0e6ed;
         font-family: 'Inter', sans-serif;
     }
     
     /* Main Gradient Headers */
     h1, h2, h3 {
-        background: linear-gradient(135deg, #7c3aed 0%, #4F46E5 100%);
+        background: linear-gradient(135deg, #00d9ff 0%, #0099cc 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         font-weight: 800 !important;
@@ -35,42 +35,42 @@ st.markdown(
     
     /* Modern Content Cards */
     [data-testid="stVerticalBlock"] > div:has(div.custom-block), .stBlock {
-        background: #FFFFFF !important;
+        background: #1a2847 !important;
         border-radius: 16px !important;
         padding: 24px !important;
-        box-shadow: 0 10px 25px -5px rgba(124, 58, 237, 0.05), 0 8px 16px -6px rgba(0, 0, 0, 0.03) !important;
-        border: 2px solid #E2E8F0 !important;
+        box-shadow: 0 10px 25px -5px rgba(0, 217, 255, 0.1), 0 8px 16px -6px rgba(0, 0, 0, 0.3) !important;
+        border: 2px solid #00d9ff !important;
         margin-bottom: 20px !important;
     }
     
     /* Training/Action Button Styling */
     .action-btn > div > button, .stButton > button {
-        background: linear-gradient(135deg, #7c3aed 0%, #4f46e5 100%) !important;
-        color: white !important;
+        background: linear-gradient(135deg, #00d9ff 0%, #0099cc 100%) !important;
+        color: #0a0e27 !important;
         border: none !important;
         border-radius: 12px !important;
         font-weight: bold !important;
         height: 48px;
-        box-shadow: 0 4px 12px rgba(124, 58, 237, 0.2) !important;
+        box-shadow: 0 4px 12px rgba(0, 217, 255, 0.3) !important;
         transition: all 0.2s ease;
     }
     .action-btn > div > button:hover, .stButton > button:hover {
         transform: translateY(-1px);
-        box-shadow: 0 6px 16px rgba(124, 58, 237, 0.35) !important;
+        box-shadow: 0 6px 16px rgba(0, 217, 255, 0.5) !important;
     }
     
     /* Terminal Code Block Panel */
     .terminal-container {
-        background-color: #0F172A;
-        border-left: 5px solid #7c3aed;
+        background-color: #0f172a;
+        border-left: 5px solid #00d9ff;
         padding: 20px;
         border-radius: 12px;
         font-family: 'JetBrains Mono', monospace;
         font-size: 15px;
         line-height: 1.6;
-        color: #38BDF8;
+        color: #00d9ff;
         white-space: pre-wrap;
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+        box-shadow: 0 10px 25px rgba(0, 217, 255, 0.1);
     }
     
     /* Dynamic Colored Badges for Tensors */
@@ -84,9 +84,9 @@ st.markdown(
         text-transform: uppercase;
         letter-spacing: 0.05em;
     }
-    .forward-pass { background-color: #e0f2fe !important; color: #0369a1 !important; border: 1px solid #bae6fd !important; }
-    .backward-pass { background-color: #fce7f3 !important; color: #b7056d !important; border: 1px solid #fbcfe8 !important; }
-    .concat-state { background-color: #f3e8ff !important; color: #6b21a8 !important; border: 1px solid #e9d5ff !important; }
+    .forward-pass { background-color: #004d66 !important; color: #00d9ff !important; border: 1px solid #00d9ff !important; }
+    .backward-pass { background-color: #1a2f42 !important; color: #00d9ff !important; border: 1px solid #0099cc !important; }
+    .concat-state { background-color: #0a3a4a !important; color: #00d9ff !important; border: 1px solid #00d9ff !important; }
     </style>
     """,
     unsafe_allow_html=True
@@ -206,7 +206,7 @@ n_embd, n_head, n_layer, block_size = 64, 4, 3, 16
 # ==============================================================================
 if studio_mode == "GPT Autoregressive Studio":
     st.title("⚡ GPT Architecture Studio")
-    st.write("Train and visualize an autoregressive Transformer language model natively inside a sleek, bright interface.")
+    st.write("Train and visualize an autoregressive Transformer language model natively inside a sleek, dark interface.")
     
     st.sidebar.markdown("### 🛠️ GPT Configuration")
     st.sidebar.info(f"**Embedding Space:** {n_embd} channels\n\n**Attention Heads:** {n_head}\n\n**Transformer Layers:** {n_layer}\n\n**Context Bounds:** {block_size} tokens")
@@ -306,9 +306,9 @@ if studio_mode == "GPT Autoregressive Studio":
 # ==============================================================================
 else:
     st.markdown("""
-    <div style="text-align: center; padding: 20px 0; background: linear-gradient(135deg, #7c3aed 0%, #4f46e5 100%); border-radius: 16px; margin-bottom: 30px; box-shadow: 0 10px 20px rgba(124, 58, 237, 0.15);">
-        <div style="color: #ffffff !important; font-weight: 800 !important; font-size: 2.5rem !important; margin: 0 !important; letter-spacing: -0.02em;">🔁 Bidirectional LSTM Workbench</div>
-        <div style="color: #ddd6fe !important; font-size: 1.05rem; font-weight: 500; margin-top: 5px;">Supervised Deep Learning Sequence Representation Analysis</div>
+    <div style="text-align: center; padding: 20px 0; background: linear-gradient(135deg, #00d9ff 0%, #0099cc 100%); border-radius: 16px; margin-bottom: 30px; box-shadow: 0 10px 20px rgba(0, 217, 255, 0.3);">
+        <div style="color: #0a0e27 !important; font-weight: 800 !important; font-size: 2.5rem !important; margin: 0 !important; letter-spacing: -0.02em;">🔁 Bidirectional LSTM Workbench</div>
+        <div style="color: #1a1f3a !important; font-size: 1.05rem; font-weight: 500; margin-top: 5px;">Supervised Deep Learning Sequence Representation Analysis</div>
     </div>
     """, unsafe_allow_html=True)
 
@@ -419,7 +419,7 @@ else:
 
     st.markdown('<div class="custom-block"></div>', unsafe_allow_html=True)
     st.subheader("💡 Context Dependency Breakdown")
-    st.write("By utilizing **Bidirectional LSTM structures**, data streams concurrently from both ends (left-to-right and right-to-left). This allows long-range text dependencies to preserve local semantic logic.")
+    st.write("By utilizing **Bidirectional LSTM structures**, data streams concurrently from both ends (left-to-right and right-to-left). This allows long-range text dependencies to preserve local context patterns.")
 
     if trigger_process and sample_text.strip() and 'trace_log' in locals():
         st.subheader("📋 Step Ledger Breakdown")

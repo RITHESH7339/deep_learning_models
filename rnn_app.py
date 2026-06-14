@@ -3,6 +3,33 @@ import numpy as np
 from tensorflow.keras.models import load_model
 from tensorflow.keras.datasets import imdb
 from tensorflow.keras.preprocessing.sequence import pad_sequences
+
+# Dark theme with cyan accents
+st.markdown("""
+<style>
+.stApp {
+    background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
+    color: #e0e6ed;
+}
+
+h1, h2, h3 {
+    color: #00d9ff !important;
+    text-shadow: 0 0 10px rgba(0, 217, 255, 0.3);
+}
+
+.stButton > button {
+    background: linear-gradient(135deg, #00d9ff 0%, #0099cc 100%) !important;
+    color: #0a0e27 !important;
+    border: none !important;
+    font-weight: bold !important;
+}
+
+.stButton > button:hover {
+    box-shadow: 0 0 15px rgba(0, 217, 255, 0.5) !important;
+}
+</style>
+""", unsafe_allow_html=True)
+
 model = load_model(
     "models/rnn_imdb.h5"
 )
